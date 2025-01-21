@@ -192,14 +192,7 @@ local function CheckIfBad(Instance)
         end
     end
 end
-if _G.SendNotifications then
-    StarterGui:SetCore("SendNotification", {
-        Title = "Tony Hub",
-        Text = "Loading FPS Booster...",
-        Duration = 0,
-        Button1 = "Okay"
-    })
-end
+
 coroutine.wrap(pcall)(function()
     if (_G.Settings["Low Water Graphics"] or (_G.Settings.Other and _G.Settings.Other["Low Water Graphics"])) then
         if not workspace:FindFirstChildOfClass("Terrain") then
@@ -222,19 +215,7 @@ coroutine.wrap(pcall)(function()
             })
             warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
         end
-        if _G.SendNotifications then
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "Low Water Graphics Enabled",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-        end
-        if _G.ConsoleLogs then
-            warn("Low Water Graphics Enabled")
-        end
-    end
-end)
+        
 coroutine.wrap(pcall)(function()
     if _G.Settings["No Shadows"] or (_G.Settings.Other and _G.Settings.Other["No Shadows"]) then
         Lighting.GlobalShadows = false
@@ -243,104 +224,31 @@ coroutine.wrap(pcall)(function()
         if sethiddenproperty then
             sethiddenproperty(Lighting, "Technology", 2)
         else
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-            warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
-        end
-        if _G.SendNotifications then
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "No Shadows Enabled",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-        end
-        if _G.ConsoleLogs then
-            warn("No Shadows Enabled")
-        end
-    end
-end)
+            
 coroutine.wrap(pcall)(function()
     if _G.Settings["Low Rendering"] or (_G.Settings.Other and _G.Settings.Other["Low Rendering"]) then
         settings().Rendering.QualityLevel = 1
         settings().Rendering.MeshPartDetailLevel = Enum.MeshPartDetailLevel.Level04
-        if _G.SendNotifications then
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "Low Rendering Enabled",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-        end
-        if _G.ConsoleLogs then
-            warn("Low Rendering Enabled")
-        end
-    end
-end)
+        
 coroutine.wrap(pcall)(function()
     if _G.Settings["Reset Materials"] or (_G.Settings.Other and _G.Settings.Other["Reset Materials"]) then
         for i, v in pairs(MaterialService:GetChildren()) do
             v:Destroy()
         end
         MaterialService.Use2022Materials = false
-        if _G.SendNotifications then
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "Reset Materials Enabled",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-        end
-        if _G.ConsoleLogs then
-            warn("Reset Materials Enabled")
-        end
-    end
-end)
+        
 coroutine.wrap(pcall)(function()
     if _G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"]) then
         if setfpscap then
             if type(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])) == "string" or type(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])) == "number" then
                 setfpscap(tonumber(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])))
-                if _G.SendNotifications then
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "Tony Hub",
-                        Text = "FPS Capped to " .. tostring(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])),
-                        Duration = 0,
-                        Button1 = "Okay"
-                    })
-                end
+                
                 if _G.ConsoleLogs then
                     warn("FPS Capped to " .. tostring(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])))
                 end
             elseif _G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"]) == true then
                 setfpscap(1e6)
-                if _G.SendNotifications then
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "Tony Hub",
-                        Text = "FPS Uncapped",
-                        Duration = 0,
-                        Button1 = "Okay"
-                    })
-                end
-                if _G.ConsoleLogs then
-                    warn("FPS Uncapped")
-                end
-            end
-        else
-            StarterGui:SetCore("SendNotification", {
-                Title = "Tony Hub",
-                Text = "FPS Cap Failed",
-                Duration = 0,
-                Button1 = "Okay"
-            })
-            warn("FPS Cap Failed")
-        end
-    end
-end)
+                
 game.DescendantAdded:Connect(function(value)
     wait(_G.LoadedWait or 1)
     CheckIfBad(value)
@@ -348,17 +256,8 @@ end)
 local Descendants = game:GetDescendants()
 local StartNumber = _G.WaitPerAmount or 500
 local WaitNumber = _G.WaitPerAmount or 500
-if _G.SendNotifications then
-    StarterGui:SetCore("SendNotification", {
-        Title = "Tony Hub",
-        Text = "Checking " .. #Descendants .. " Instances...",
-        Duration = 0,
-        Button1 = "Okay"
-    })
-end
-if _G.ConsoleLogs then
-    warn("Checking " .. #Descendants .. " Instances...")
-end
+
+
 for i, v in pairs(Descendants) do
     CheckIfBad(v)
     if i == WaitNumber then
@@ -369,12 +268,7 @@ for i, v in pairs(Descendants) do
         WaitNumber = WaitNumber + StartNumber
     end
 end
-StarterGui:SetCore("SendNotification", {
-    Title = "Tony Hub",
-    Text = "FPS Booster Loaded! Enjoy Game My Friend 🦅",
-    Duration = 0,
-    Button1 = "Okay"
-})
+
 warn("FPS Booster Loaded!")
 --game.DescendantAdded:Connect(CheckIfBad)
 --[[game.DescendantAdded:Connect(function(value)
