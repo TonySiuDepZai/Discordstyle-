@@ -196,7 +196,7 @@ if _G.SendNotifications then
     StarterGui:SetCore("SendNotification", {
         Title = "Tony Hub",
         Text = "Loading FPS Booster...",
-        Duration = math.huge,
+        Duration = 0,
         Button1 = "Okay"
     })
 end
@@ -217,7 +217,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
             warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
@@ -226,7 +226,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "Low Water Graphics Enabled",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
         end
@@ -246,7 +246,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
             warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
@@ -255,7 +255,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "No Shadows Enabled",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
         end
@@ -272,7 +272,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "Low Rendering Enabled",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
         end
@@ -291,7 +291,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "Reset Materials Enabled",
-                Duration = 5,
+                Duration = 0,
                 Button1 = "Okay"
             })
         end
@@ -309,7 +309,7 @@ coroutine.wrap(pcall)(function()
                     StarterGui:SetCore("SendNotification", {
                         Title = "Tony Hub",
                         Text = "FPS Capped to " .. tostring(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])),
-                        Duration = 5,
+                        Duration = 0,
                         Button1 = "Okay"
                     })
                 end
@@ -322,7 +322,7 @@ coroutine.wrap(pcall)(function()
                     StarterGui:SetCore("SendNotification", {
                         Title = "Tony Hub",
                         Text = "FPS Uncapped",
-                        Duration = 5,
+                        Duration = 0,
                         Button1 = "Okay"
                     })
                 end
@@ -334,7 +334,7 @@ coroutine.wrap(pcall)(function()
             StarterGui:SetCore("SendNotification", {
                 Title = "Tony Hub",
                 Text = "FPS Cap Failed",
-                Duration = math.huge,
+                Duration = 0,
                 Button1 = "Okay"
             })
             warn("FPS Cap Failed")
@@ -352,7 +352,7 @@ if _G.SendNotifications then
     StarterGui:SetCore("SendNotification", {
         Title = "Tony Hub",
         Text = "Checking " .. #Descendants .. " Instances...",
-        Duration = 15,
+        Duration = 0,
         Button1 = "Okay"
     })
 end
@@ -372,7 +372,7 @@ end
 StarterGui:SetCore("SendNotification", {
     Title = "Tony Hub",
     Text = "FPS Booster Loaded! Enjoy Game My Friend 🦅",
-    Duration = math.huge,
+    Duration = 0,
     Button1 = "Okay"
 })
 warn("FPS Booster Loaded!")
